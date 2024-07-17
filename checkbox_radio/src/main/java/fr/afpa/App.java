@@ -48,7 +48,7 @@ public class App extends Application {
         textField1.getText();// recupère le texte dans le champs
 
         Label saisirLabel = new Label("Saississez votre texte");
-        Label resultLabel = new Label(textField1.getText()); // le texte est collé dans le label
+        Label resultLabel = new Label(); 
 
         // Mettre à jour le texte du label avec le nouveau texte du TextField
         textField1.textProperty().addListener((observable,
@@ -70,10 +70,10 @@ public class App extends Application {
         toolbox.setDisable(true);
 
         // titlepane BAckGround
-        ToggleGroup toggleGroup = new ToggleGroup();// permet de selectionner un seul radiobox
+        ToggleGroup toggleGroup = new ToggleGroup();// permet de selectionner un seul radiobox à la fois
         RadioButton redRadio = new RadioButton("red");
         redRadio.setToggleGroup(toggleGroup);
-        redRadio.setStyle(STYLESHEET_CASPIAN);
+        // redRadio.setStyle(STYLESHEET_CASPIAN);
         RadioButton greenRadio = new RadioButton("green");
         greenRadio.setToggleGroup(toggleGroup);
         RadioButton blueRadio = new RadioButton("blue");
@@ -88,11 +88,14 @@ public class App extends Application {
             toolboxBackround.setVisible(newValue);
         });
 
-        // Title ColorSliders
+        // Title ColorSliders;  TODO:rajouter des noms aux differnets sliders 
         Slider redSlider = new Slider(0, 255, 127.5);
         Slider greenSlider = new Slider(0, 255, 127.5);
         Slider blueSlider = new Slider(0, 255, 127.5);
-        VBox sliderBox = new VBox(redSlider, greenSlider, blueSlider);
+        Label label1 = new Label("red");
+        Label label2 = new Label("green");
+        Label label3 = new Label("blue");
+        VBox sliderBox = new VBox(label1,redSlider,label2,greenSlider,label3 , blueSlider);
         TitledPane toolboxSliders = new TitledPane("CharColor", sliderBox);
         toolboxSliders.setCollapsible(true);
 
